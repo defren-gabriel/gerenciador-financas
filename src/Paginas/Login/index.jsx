@@ -52,6 +52,7 @@ const Login = () => {
                     <button className={styles.botaoregistrar}>Fazer o registro</button>
                     <input className={styles.botaoentrar} type="submit" value="Entrar" />
                 </div>
+                <p className={styles.erro}>Houve um erro qualquer</p>
             </form>
         </section>
     );
