@@ -1,0 +1,66 @@
+.container {
+    box-sizing: border-box;
+
+    max-width: 750px;
+    margin: auto;
+}
+
+.projdev {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.projdeva {
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.links {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.linkss {
+    font-size: 48px;
+    color: black;
+}
+
+.linksb {
+    padding: 10px 25px;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.25);
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+.linksb:hover {
+    background-color: rgba(255, 0, 0, 0.75);
+    color: white;
+}
+
+/*celular e tablet*/
+@media screen and (max-width: 750px){
+    .linkss {
+        font-size: 32px;
+    }
+}
