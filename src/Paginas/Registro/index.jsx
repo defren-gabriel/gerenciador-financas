@@ -23,6 +23,7 @@ const Registro = () => {
 
         setRegistrando(true);
         console.log("Fazendo o registro");
+        navigate("/controle");
     }
 
     return(

@@ -24,6 +24,7 @@ const Login = () => {
 
         setLogando(true);
         console.log("Fazendo o login");
+        navigate("/controle");
     }
 
     return(

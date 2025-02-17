@@ -1,0 +1,21 @@
+.container {
+    max-width: 750px;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.titulo1 {
+    margin: 0;
+    color: black;
+}
+
+.paragrafo {
+    margin: 0;
+    color: black;
+}

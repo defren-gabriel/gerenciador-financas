@@ -1,8 +1,10 @@
+import styles from "./Controle.module.css";
+
 const Controle = () => {
     return(
-        <>
-            Pagina de Controle das finanças
-        </>
+        <section className={styles.container}>
+            <p>Pagina de Controle das finanças</p>
+        </section>
     );
 }
 
