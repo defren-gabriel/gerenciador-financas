@@ -1,15 +1,19 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
+//paginas
 import Login from "./Paginas/Login";
 import Registro from "./Paginas/Registro";
 import Erro from "./Paginas/Erro";
 import Controle from "./Paginas/Controle";
 
+//componentes
+import Navegacao from "./Componentes/Navegacao";
+
 const App = () => {
   return (
     <main>
       <BrowserRouter>
-        {/*componente de navegação*/}
+        <Navegacao />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
