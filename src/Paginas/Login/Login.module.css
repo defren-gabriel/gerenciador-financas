@@ -1,0 +1,85 @@
+.container {
+    box-sizing: border-box;
+
+    max-width: 750px;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo1 {
+    color: black;
+    margin: 15px 0 25px 0;
+    font-size: 2em;
+}
+
+/*container para o formulario*/
+.form {
+    min-width: 280px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*container para o email*/
+.email {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.label {
+    color: black;
+}
+
+.input {
+    color: black;
+    padding: 5px 10px;
+}
+
+/*container para a senha*/
+.senha {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+/*container para os botoes*/
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.botaoregistrar {
+    color: black;
+    padding: 5px 10px;
+}
+
+.botaoentrar {
+    color: black;
+    padding: 5px 10px;
+}
+
+/*estilo para celular e tablet*/
+@media screen and (max-width: 750px){
+    .titulo1 {
+        font-size: 1.5em;
+    }
+}
