@@ -1,18 +1,39 @@
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./Login.module.css";
 
 const Login = () => {
+    //controle do email e senha
     const [email, setEmail] = useState("");
     const handleEmailChange = (e) => setEmail(e.target.value);
     const [senha, setSenha] = useState("");
     const handleSenhaChange = (e) => setSenha(e.target.value);
 
+    //manipula a mudança de pagina
+    const navigate = useNavigate();
+    const handleRegistro = (e) => {
+        e.preventDefault();
+        navigate("/registro");
+    }
+
+    //manipula o login
+    const [logando, setLogando] = useState(false);
+    const Login = (e) => {
+        e.preventDefault();
+
+        setLogando(true);
+        console.log("Fazendo o login");
+    }
+
     return(
         <section className={styles.container}>
             <h1 className={styles.titulo1}>Efetue a entrada</h1>
             {/*container do formulario*/}
-            <form className={styles.form}>
+            <form 
+                className={styles.form}
+                onSubmit={Login}
+            >
                 {/*container para o email*/}
                 <div className={styles.email}>
                     <label 
@@ -48,10 +69,23 @@ const Login = () => {
                     />
                 </div>
                 {/*container para os botoes*/}
-                <div className={styles.botoes}>
-                    <button className={styles.botaoregistrar}>Fazer o registro</button>
-                    <input className={styles.botaoentrar} type="submit" value="Entrar" />
-                </div>
+                {
+                    !logando ? 
+                        <div className={styles.botoes}>
+                            <button 
+                                className={styles.botaoregistrar}
+                                onClick={handleRegistro}
+                            >
+                                Fazer o registro
+                            </button>
+                            <input 
+                                className={styles.botaoentrar} 
+                                type="submit" 
+                                value="Entrar" 
+                            />
+                        </div> :
+                        <p className={styles.msgbtn}>Aguarde por favor...</p>
+                }
                 <p className={styles.erro}>Houve um erro qualquer</p>
             </form>
         </section>

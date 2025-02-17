@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./Registro.module.css";
 
@@ -8,11 +9,30 @@ const Registro = () => {
     const [senha, setSenha] = useState("");
     const handleSenhaChange = (e) => setSenha(e.target.value);
 
+    //manipula a mudança de pagina
+    const navigate = useNavigate();
+    const handleLogin = (e) => {
+        e.preventDefault();
+        navigate("/");
+    }
+
+    //manipula o registro
+    const [registrando, setRegistrando] = useState(false);
+    const Registro = (e) => {
+        e.preventDefault();
+
+        setRegistrando(true);
+        console.log("Fazendo o registro");
+    }
+
     return(
         <section className={styles.container}>
             <h1 className={styles.titulo1}>Efetue o registro</h1>
             {/*container do formulario*/}
-            <form className={styles.form}>
+            <form 
+                className={styles.form}
+                onSubmit={Registro}
+            >
                 {/*container para o email*/}
                 <div className={styles.email}>
                     <label 
@@ -48,10 +68,23 @@ const Registro = () => {
                     />
                 </div>
                 {/*container para os botoes*/}
-                <div className={styles.botoes}>
-                    <button className={styles.botaoentrar}>Fazer o login</button>
-                    <input className={styles.botaoregistrar} type="submit" value="Registrar" />
-                </div>
+                {
+                    !registrando ?
+                        <div className={styles.botoes}>
+                            <button 
+                                className={styles.botaoentrar}
+                                onClick={handleLogin}
+                            >
+                                Fazer o login
+                            </button>
+                            <input 
+                                className={styles.botaoregistrar} 
+                                type="submit" 
+                                value="Registrar" 
+                            />
+                        </div> :
+                        <p className={styles.msgbtn}>Aguarde por favor...</p>
+                }
                 <p className={styles.erro}>Houve um erro qualquer</p>
             </form>
         </section>
