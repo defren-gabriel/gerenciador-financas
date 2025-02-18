@@ -1,0 +1,21 @@
+.container_categoria {
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+}
+
+.titulo1 {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.titulo1h1 {
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+.titulo1s {
+    border-bottom: 1px solid black;
+}
