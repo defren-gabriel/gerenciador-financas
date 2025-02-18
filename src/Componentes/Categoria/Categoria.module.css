@@ -3,19 +3,78 @@
     margin: 0 auto 25px auto;
 }
 
+/*container com os titulos*/
 .titulo1 {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 10px;
+
+    margin-bottom: 12px;
 }
 
-.titulo1h1 {
+.titulo1cat {
     margin: 0;
     border-bottom: 1px solid black;
+    flex-grow: 1;
 }
 
-.titulo1s {
+.titulo1valor {
     border-bottom: 1px solid black;
+    min-width: 150px;
+    text-align: right;
+}
+
+.titulo1data {
+    border-bottom: 1px solid black;
+}
+
+/*container de linhas da tabela*/
+.itemlinha {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.itemlinha1 {
+    flex-grow: 1;
+    color: black;
+}
+
+.itemlinha2 {
+    min-width: 150px;
+    text-align: right;
+    color: black;
+}
+
+.itemlinha3 {
+    color: black;
+}
+
+/*container para a linha contendo o total*/
+.total {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    margin-top: 25px;
+}
+
+.totaltitulo {
+    min-width: 100px;
+    color: black;
+}
+
+.totalvalor {
+    color: black;
+}
+
+/*aplica para as linhas de item linha a caracteristica zebrada*/
+.container_categoria .itemlinha:nth-child(even) {
+  background-color: #f2f2f2; /* Cor para linhas ímpares */
 }
