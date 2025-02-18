@@ -1,6 +1,6 @@
 .container_categoria {
     max-width: 750px;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 50px auto;
 }
 
 /*container com os titulos*/
@@ -55,6 +55,64 @@
     color: black;
 }
 
+/*container para a area de registro de despesa/receita*/
+.estaregistrando {
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    margin: 12px 0 0 12px;
+    border-radius: 5px;
+}
+
+.adicao {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.adicaoh2 {
+    color: black;
+    margin: 0;
+}
+
+/*container para o formulario*/
+.formadicao {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    width: 75%;
+}
+
+.descricao {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+}
+
+.descricaolabel {
+    color: black;
+}
+
+.descricaoinput {
+    color: black;
+    flex-grow: 1;
+}
+
+.tipogasto {
+    
+}
+
 /*container para a linha contendo o total*/
 .total {
     display: flex;
@@ -77,4 +135,12 @@
 /*aplica para as linhas de item linha a caracteristica zebrada*/
 .container_categoria .itemlinha:nth-child(even) {
   background-color: #f2f2f2; /* Cor para linhas ímpares */
+}
+
+
+/*celular e tablet*/
+@media screen and (max-width: 750px) {
+    .formadicao {
+        width: 100%;
+    }
 }

@@ -26,9 +26,24 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
         setTotal(soma.toFixed(2));
     }, []);
 
+    //manipula o comportamento do formulario de registro de despesa/receita
+    const [estaRegistrando, setEstaRegistrando] = useState(false);
+    const handleEstaRegistrandoChange = () => setEstaRegistrando(!estaRegistrando);
+
+    //estados que manipulam os dados de novo registro
+    const [descricao, setDescricao] = useState("");
+    const handleDescricaoChange = (e) => setDescricao(e.target.value);
+
+    //manipula o novo registro de receita/despesa
+    const handleRegistra = (e) => {
+        e.preventDefault();
+
+        console.log("Tentando registrar receita/despesa");
+    }
+
     return(
         <section className={styles.container_categoria}>
-            {/*titulo e data*/}
+            {/*titulo valor e data*/}
             <div className={styles.titulo1}>
                 <h1 className={styles.titulo1cat}>{nomeCat}</h1>
                 <span className={styles.titulo1valor}>Valor</span>
@@ -36,6 +51,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
             </div>
             {
                 reg.map((item)=>(
+                    /*container para as linhas*/
                     <div 
                         key={item.id}
                         className={styles.itemlinha}
@@ -50,6 +66,44 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                     </div>
                 ))
             }
+            {/*container para o formulário de registro de despesa/receita*/}
+            <button 
+                onClick={()=>handleEstaRegistrandoChange()}
+                className={styles.estaregistrando}
+            >
+                +
+            </button>
+            {
+                estaRegistrando && 
+                    <div className={styles.adicao}>
+                        <h2 className={styles.adicaoh2}>Nova Receita/Despesa</h2>
+                        <form 
+                            className={styles.formadicao}
+                            onSubmit={handleRegistra}
+                        >
+                            <div className={styles.descricao}>
+                                <label 
+                                    htmlFor="descricao"
+                                    className={styles.descricaolabel}
+                                >
+                                    Descrição
+                                </label>
+                                <input 
+                                    type="text"
+                                    id="descricao"
+                                    name="descricao"
+                                    value={descricao}
+                                    onChange={handleDescricaoChange}
+                                    className={styles.descricaoinput}
+                                />
+                            </div>
+                            <div className={styles.tipogasto}>
+                                {/*CONTINUAR AQUI - TIPO DE VALOR*/}
+                            </div>
+                        </form>
+                    </div>
+            }
+            {/*container para mostrar a soma total*/}
             <div className={styles.total}>
                 <strong className={styles.totaltitulo}>Total:</strong>
                 <strong className={styles.totalvalor}>R$ {total}</strong>
