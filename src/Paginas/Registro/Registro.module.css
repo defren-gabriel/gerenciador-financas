@@ -80,11 +80,13 @@
 .msgbtn {
     text-align: center;
     margin: 0;
+    color: black;
 }
 
 .erro {
     text-align: center;
     margin: 0;
+    color: black;
 }
 
 /*estilo para celular e tablet*/

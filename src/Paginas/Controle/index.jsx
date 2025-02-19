@@ -65,7 +65,7 @@ const Controle = () => {
             {
                 estaRegistrando && 
                     <div className={styles.containernovac}>
-                        <h2>Registrando nova categoria</h2>
+                        <h2 className={styles.titulo2novac}>Registrando nova categoria</h2>
                         <form 
                             onSubmit={handleRegistroCategoria}
                             className={styles.formregistracat}

@@ -115,12 +115,22 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                             </div>
                             {/*container tipogasto*/}
                             <div className={styles.tipogasto}>
-                                <label htmlFor="tipogastoinput">Tipo de registro</label>
+                                <label 
+                                    htmlFor="tipogastoinput"
+                                    className={styles.label}
+                                >
+                                    Tipo de registro
+                                </label>
                                 <div 
                                     className={styles.tipogastoinput}
                                     id="tipogastoinput"
                                 >
-                                    <label htmlFor="tipogastodespesa">Despesa</label>
+                                    <label 
+                                        htmlFor="tipogastodespesa"
+                                        className={styles.label}
+                                    >
+                                        Despesa
+                                    </label>
                                     <input
                                         type="radio"
                                         value="Despesa"
@@ -128,8 +138,14 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                                         checked={tipo === "Despesa"}
                                         onChange={handleTipoChange}
                                         id="tipogastodespesa"
+                                        className={styles.input}
                                     />
-                                    <label htmlFor="tipogastoreceita">Receita</label>
+                                    <label 
+                                        htmlFor="tipogastoreceita"
+                                        className={styles.label}
+                                    >
+                                        Receita
+                                    </label>
                                     <input
                                         type="radio"
                                         value="Receita"
@@ -137,6 +153,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                                         checked={tipo === "Receita"}
                                         onChange={handleTipoChange}
                                         id="tipogastoreceita"
+                                        className={styles.input}
                                     />
                                 </div>
                             </div>
