@@ -32,12 +32,24 @@
 }
 
 /*container de linhas da tabela*/
-.itemlinha {
+.itemlinhad {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
+
+    background-color: #FF5733;
+}
+
+.itemlinhar {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+
+    background-color: #4CAF50;
 }
 
 .itemlinha1 {
@@ -89,6 +101,7 @@
     width: 75%;
 }
 
+/*container descricao*/
 .descricao {
     display: flex;
     flex-wrap: nowrap;
@@ -98,6 +111,10 @@
     gap: 12px;
 
     width: 100%;
+
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .descricaolabel {
@@ -109,8 +126,75 @@
     flex-grow: 1;
 }
 
+/*container tipogasto*/
 .tipogasto {
-    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 12px;
+
+    width: 100%;
+
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.tipogastoinput {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    flex-grow: 1;
+}
+
+/*container valor*/
+.valor {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.valorlabel {
+    color: black;
+}
+
+.valorinput {
+    color: black;
+}
+
+/*container submit*/
+.submit {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.submitsubmit {
+    color: black;
+    box-sizing: border-box;
+    padding: 7px 10px;
 }
 
 /*container para a linha contendo o total*/
@@ -128,14 +212,18 @@
     color: black;
 }
 
-.totalvalor {
-    color: black;
+.totalvalorp {
+    background-color: #4CAF50;
+}
+
+.totalvalorn {
+    background-color: #FF5733;
 }
 
 /*aplica para as linhas de item linha a caracteristica zebrada*/
-.container_categoria .itemlinha:nth-child(even) {
-  background-color: #f2f2f2; /* Cor para linhas ímpares */
-}
+/*.container_categoria .itemlinha:nth-child(even) {
+  background-color: #f2f2f2;
+}*/
 
 
 /*celular e tablet*/
