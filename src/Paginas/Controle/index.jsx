@@ -19,7 +19,7 @@ const Controle = () => {
 
     return(
         <section className={styles.container}>
-            <h1 className={styles.titulo1}>Página de controle de finanças:</h1>
+            <h1 className={styles.titulo1}>Página de controle de finanças</h1>
             {/*mapeia as categorias e passa os dados da categoria e a lista de dados para filtragem dentro do componente*/}
             {
                 categorias.map((item)=>(
@@ -32,6 +32,8 @@ const Controle = () => {
                     />
                 ))
             }
+            {/*container para o botão de registro de nova categoria*/}
+            
         </section>
     );
 }

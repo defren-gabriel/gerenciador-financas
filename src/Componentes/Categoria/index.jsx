@@ -85,7 +85,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                 onClick={()=>handleEstaRegistrandoChange()}
                 className={styles.estaregistrando}
             >
-                +
+                Novo Registro
             </button>
             {
                 estaRegistrando && 
