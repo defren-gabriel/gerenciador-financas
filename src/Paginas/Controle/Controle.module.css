@@ -1,9 +1,81 @@
 .container {
     max-width: 750px;
-    margin: auto;
+    margin: 0 auto 100px auto;
 }
 
 .titulo1 {
     text-align: center;
     margin: 30px 0 50px 0;
+}
+
+.novacategoria {
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    margin: 0 0 0 50px;
+    border-radius: 5px;
+}
+
+/*container para todo o registro de nova categoria*/
+.containernovac {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.formregistracat {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 75%;
+}
+
+/*container para o nome da categoria*/
+.inputnome {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.inputnomelabel {
+    color: black;
+}
+
+.inputnomeinput {
+    color: black;
+    flex-grow: 1;
+}
+
+/*container para o submit do registro de categoria*/
+.submit {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.submitsubmit {
+    color: black;
+    box-sizing: border-box;
+    padding: 7px 10px;
 }

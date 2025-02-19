@@ -27,7 +27,7 @@ const Registro = () => {
     }
 
     return(
-        <section className={styles.container}>
+        <main className={styles.container}>
             <h1 className={styles.titulo1}>Efetue o registro</h1>
             {/*container do formulario*/}
             <form 
@@ -88,7 +88,7 @@ const Registro = () => {
                 }
                 <p className={styles.erro}>Houve um erro qualquer</p>
             </form>
-        </section>
+        </main>
     );
 }
 

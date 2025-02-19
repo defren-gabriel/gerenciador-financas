@@ -17,10 +17,10 @@ const Erro = () => {
     }, []);
 
     return(
-        <section className={styles.container}>
+        <main className={styles.container}>
             <h1 className={styles.titulo1}>A página não existe</h1>
             <p className={styles.paragrafo}>Redirecionando para a página de login...</p>
-        </section>
+        </main>
     );
 }
 

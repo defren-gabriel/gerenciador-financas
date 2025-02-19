@@ -11,7 +11,7 @@ import Navegacao from "./Componentes/Navegacao";
 
 const App = () => {
   return (
-    <main>
+    <div>
       <BrowserRouter>
         <Navegacao />
         <Routes>
@@ -19,9 +19,9 @@ const App = () => {
           <Route path="/registro" element={<Registro />} />
           <Route path="/controle" element={<Controle />} />
           <Route path="*" element={<Erro />} />
-        </Routes>  
+        </Routes>
       </BrowserRouter>
-    </main>
+    </div>
   )
 }
 
