@@ -115,6 +115,33 @@ const Controle = () => {
         };
     }, [user]);
 
+    //lista os registros
+    useEffect(() => {
+        if (!user) {
+          setRegistros([]);  
+          return;
+        }
+    
+        const q = query(
+          collection(db, "registros"),
+          where("idusuario", "==", user.uid),
+          orderBy("ordem", "asc")
+        );
+    
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const lis = querySnapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+          }));
+    
+          setRegistros(lis);
+        });
+    
+        return () => {
+          unsubscribe();
+        };
+    }, [user]);
+
     return(
         <main className={styles.container}>
             <h1 className={styles.titulo1}>Página de controle de finanças</h1>
