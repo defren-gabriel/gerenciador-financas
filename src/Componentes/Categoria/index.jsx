@@ -58,6 +58,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
 
         console.log("Tentando registrar receita/despesa");
     }
+    //CONTINUAR AQUI
 
     return(
         <section className={styles.container_categoria}>
