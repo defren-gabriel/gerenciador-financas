@@ -18,7 +18,7 @@
 
 /*container para o formulario*/
 .form {
-    min-width: 280px;
+    max-width: 280px;
 
     display: flex;
     flex-wrap: nowrap;
