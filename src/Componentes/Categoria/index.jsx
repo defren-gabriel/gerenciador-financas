@@ -1,8 +1,28 @@
 import { useState, useEffect, useRef } from "react";
 
+import { useAuth } from "../../Contextos/Auth";
+import { db } from "../../Firebase/config";
+
+import { 
+    collection, 
+    addDoc,
+    query, 
+    where, 
+    onSnapshot,
+    deleteDoc, 
+    doc,
+    serverTimestamp,
+    orderBy,
+    getDocs
+} from "firebase/firestore";
+
+import {format} from "date-fns";
+
 import styles from "./Categoria.module.css";
 
 const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
+    const {user} = useAuth();
+
     //configura os states
     const [idCat, setIdcat] = useState("");
     const [nomeCat, setNomecat] = useState("");
@@ -11,7 +31,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
     const [total, setTotal] = useState("");
 
     //ao renderizar o componente os dados são passados do props para os states
-    useState(()=>{
+    useEffect(()=>{
         setIdcat(idcategoria);
         setNomecat(nomecategoria);
         setDa(data);
@@ -24,7 +44,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
             return acumulador + valorAjustado;
         }, 0);
         setTotal(soma.toFixed(2));
-    }, []);
+    }, [idcategoria, nomecategoria, data, registros]);
 
     //manipula o comportamento do formulario de registro de despesa/receita
     const [estaRegistrando, setEstaRegistrando] = useState(false);
@@ -32,6 +52,9 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
     /*ao abrir o formulário de resistro de receita/despesa foca no descricao*/
     useEffect(()=>{
         if(descricaoRef.current){
+            setDescricao("");
+            setTipo("Despesa");
+            setValor("");
             descricaoRef.current.focus();
         }
     }, [estaRegistrando]);
@@ -41,24 +64,58 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
     const [descricao, setDescricao] = useState("");
     const handleDescricaoChange = (e) => setDescricao(e.target.value);
     const [tipo, setTipo] = useState("Despesa");
-    const handleTipoChange = (e) => {
-        setTipo(e.target.value);
-        
-    };
-    const [valor, setValor] = useState(0.00);
+    const handleTipoChange = (e) => setTipo(e.target.value);
+    const [valor, setValor] = useState("");
     const handleValorChange = (e) => {
-        let tempvalor = e.target.value;
-        tempvalor = tempvalor.replace(",", ".");
-        setValor(parseFloat(tempvalor));
+        const input = e.target.value;
+
+        // Regex para validar números inteiros ou flutuantes com ponto
+        const isValid = /^\d*(,\d{0,2})?$/.test(input);
+
+        if (isValid) {
+            setValor(input); // Atualiza o estado apenas se for válido
+        }
     }
 
     //manipula o novo registro de receita/despesa
     const handleRegistra = (e) => {
         e.preventDefault();
 
-        console.log("Tentando registrar receita/despesa");
+        registraRegistro();
     }
-    //CONTINUAR AQUI
+    const registraRegistro = async () => {
+        if (!user) return; // Garante que o usuário está autenticado
+
+        //prepara a data formatada
+        const dataAtual = new Date();
+        const dataFormatada = format(dataAtual, "dd/MM/yyyy");
+        //prepara o tipo
+        const tempTipo = tipo === "Despesa" ? 0 : 1;
+        //prepara o valor corretamente se for vazio ou "," marca como "0"
+        let tempValor = "";
+        if(valor == "" || valor == ","){
+            tempValor = "0";
+        }
+        else {
+            tempValor = valor;
+        }
+        tempValor = tempValor.replace(",", ".");
+    
+        try {
+            await addDoc(collection(db, "registros"), {
+                idusuario: user.uid,
+                descricao: descricao,
+                tipogasto: tempTipo,
+                valor: parseFloat(tempValor),
+                data: dataFormatada,
+                idcategoria: idCat,
+                ordem: serverTimestamp()
+            });
+            setEstaRegistrando(!estaRegistrando);
+        } catch (error) {
+            console.error("Erro ao adicionar item:", error);
+        }
+    };
 
     return(
         <section className={styles.container_categoria}>
@@ -76,7 +133,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                         className={item.tipogasto ? styles.itemlinhar : styles.itemlinhad}
                     >
                         <span className={styles.itemlinha1}>{item.descricao}</span>
-                        <span className={styles.itemlinha2}>R$ {item.valor.toFixed(2)}</span>
+                        <span className={styles.itemlinha2}>R$ {item.valor.toFixed(2).replace(".", ",")}</span>
                         <span className={styles.itemlinha3}>{item.data}</span>
                     </div>
                 ))
@@ -167,12 +224,10 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                                     Valor R$
                                 </label>
                                 <input 
-                                    type="number" 
-                                    min="0.00" 
-                                    step="0.01" 
+                                    type="text"
                                     id="valor"
                                     name="valor"
-                                    value={valor.toFixed(2)}
+                                    value={valor}
                                     onChange={handleValorChange}
                                     className={styles.valorinput}
                                 />
@@ -191,7 +246,7 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
             {/*container para mostrar a soma total*/}
             <div className={styles.total}>
                 <strong className={styles.totaltitulo}>Total:</strong>
-                <strong className={total >= 0 ? styles.totalvalorp : styles.totalvalorn}>R$ {total}</strong>
+                <strong className={total >= 0 ? styles.totalvalorp : styles.totalvalorn}>R$ {total.replace(".", ",")}</strong>
             </div>
             <hr />
         </section>
