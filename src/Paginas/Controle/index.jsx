@@ -76,9 +76,10 @@ const Controle = () => {
 
         try {
           await addDoc(collection(db, "categorias"), {
-            usuario: user.uid, // ID do usuário autenticado  
+            idusuario: user.uid, // ID do usuário autenticado  
             nome: categoria,
             data: dataFormatada,
+            ordem: serverTimestamp()
           });
           setNomecategoria("");
           setEstaRegistrando(!estaRegistrando);
@@ -88,7 +89,31 @@ const Controle = () => {
     };
 
     //lista as categorias todas
-
+    useEffect(() => {
+        if (!user) {
+          setCategorias([]);  
+          return;
+        }
+    
+        const q = query(
+          collection(db, "categorias"),
+          where("idusuario", "==", user.uid),
+          orderBy("ordem", "asc")
+        );
+    
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const cats = querySnapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+          }));
+    
+          setCategorias(cats);
+        });
+    
+        return () => {
+          unsubscribe();
+        };
+    }, [user]);
 
     return(
         <main className={styles.container}>
