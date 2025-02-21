@@ -6,7 +6,7 @@
 /*container com os titulos*/
 .titulo1 {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
@@ -59,7 +59,7 @@
 /*container de linhas da tabela*/
 .itemlinhad {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -72,7 +72,7 @@
 
 .itemlinhar {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
