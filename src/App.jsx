@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 
 //paginas
 import Login from "./Paginas/Login";
@@ -12,7 +12,7 @@ import Navegacao from "./Componentes/Navegacao";
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <Navegacao />
         <Routes>
           <Route path="/" element={<Login />} />
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/controle" element={<Controle />} />
           <Route path="*" element={<Erro />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   )
 }
