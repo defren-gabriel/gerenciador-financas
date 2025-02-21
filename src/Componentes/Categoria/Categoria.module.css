@@ -15,10 +15,32 @@
     margin-bottom: 12px;
 }
 
+/*container para o componente de titulo da categoria e botões de delete*/
+.titulo1c1 {
+    flex-grow: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 .titulo1cat {
     margin: 0;
     border-bottom: 1px solid black;
+    color: black;
+    font-size: 2em;
     flex-grow: 1;
+}
+
+.titulo1but1 {
+    box-sizing: border-box;
+    padding: 5px 20px;
+    color: black;
+}
+
+.removebutt {
     color: black;
 }
 
@@ -40,9 +62,12 @@
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
 
     background-color: #FF5733;
+
+    padding: 5px;
 }
 
 .itemlinhar {
@@ -50,9 +75,12 @@
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
 
     background-color: #4CAF50;
+
+    padding: 5px;
 }
 
 .itemlinha1 {
@@ -68,6 +96,11 @@
 
 .itemlinha3 {
     color: black;
+}
+
+.removereg {
+    color: black;
+    padding: 5px 10px;
 }
 
 /*container para a area de registro de despesa/receita*/
@@ -226,6 +259,8 @@
 
 .totalvalorp {
     background-color: #4CAF50;
+
+    padding: 5px;
 }
 
 .totalvalorn {

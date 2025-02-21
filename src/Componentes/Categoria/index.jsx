@@ -8,11 +8,9 @@ import {
     addDoc,
     query, 
     where, 
-    onSnapshot,
     deleteDoc, 
     doc,
     serverTimestamp,
-    orderBy,
     getDocs
 } from "firebase/firestore";
 
@@ -117,11 +115,94 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
         }
     };
 
+    //manipula o comportamento dos botões de delete de itens e categoria completa
+    const [estaRemovendo, setEstaRemovendo] = useState(false);
+    const handleEstaRemovendoChange = (e) => {
+        e.preventDefault();
+
+        setEstaRemovendo(!estaRemovendo);
+    }
+
+    //manipula a remoção da categoria completa junto com os seus registros
+    const handleRemoveCategoria = (cat) => {
+        const confirma = window.confirm("Gostaria de remover a categoria juntamente com todos os seus registros?");
+        if(confirma){
+            //chama a função que remove a categoria e seus registros
+            RemoveCategoria(cat);
+        }
+    }
+    //função que remove a categoria juntamente com todos os registros
+    const RemoveCategoria = async (categ) => {
+        try {
+            // Verifica se o usuário está autenticado
+            if (!user) {
+                console.error("Usuário não autenticado.");
+                return;
+            }
+        
+            const q = query(
+                collection(db, "registros"),
+                where("idcategoria", "==", categ),
+                where("idusuario", "==", user.uid) // Garante que só exclui os do usuário logado
+            );
+        
+            const querySnapshot = await getDocs(q);
+        
+            // Deleta todos os registros que possuem essa categoria
+            const deletePromises = querySnapshot.docs.map((docSnapshot) =>
+                deleteDoc(doc(db, "registros", docSnapshot.id))
+            );
+        
+            await Promise.all(deletePromises);
+        
+            // Agora deleta a categoria
+            await deleteDoc(doc(db, "categorias", categ));
+        } 
+        catch (error) {
+            console.error("Erro ao deletar categoria e registros:", error);
+        }
+    };
+
+    //manipula a remoção do registro selecionado
+    const handleRemoveRegistro = (reg) => {
+        const confirma = window.confirm("Gostaria de remover esse registro?");
+        if(confirma){
+            //chama a função que remove o registro
+            RemoveRegistro(reg);
+        }
+    }
+    //funcao que remove o registro
+    const RemoveRegistro = async (id) => {
+        try {
+            await deleteDoc(doc(db, "registros", id));
+            console.log("Registro deletado com sucesso!");
+        } catch (error) {
+            console.error("Erro ao deletar registro:", error);
+        }
+    };
+
     return(
         <section className={styles.container_categoria}>
             {/*titulo valor e data*/}
             <div className={styles.titulo1}>
-                <h1 className={styles.titulo1cat}>{nomeCat}</h1>
+                <div className={styles.titulo1c1}>
+                    <strong className={styles.titulo1cat}>{nomeCat}</strong>
+                    <button 
+                        className={styles.titulo1but1}
+                        onClick={handleEstaRemovendoChange}
+                    >
+                        -
+                    </button>
+                    {
+                        estaRemovendo && /*botão que remove categoria e seus registros*/
+                            <button 
+                                className={styles.removebutt}
+                                onClick={()=>handleRemoveCategoria(idCat)}
+                            >
+                                Remover tudo
+                            </button>
+                    }
+                </div>
                 <span className={styles.titulo1valor}>Valor</span>
                 <span className={styles.titulo1data}>{da}</span>
             </div>
@@ -135,6 +216,15 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                         <span className={styles.itemlinha1}>{item.descricao}</span>
                         <span className={styles.itemlinha2}>R$ {item.valor.toFixed(2).replace(".", ",")}</span>
                         <span className={styles.itemlinha3}>{item.data}</span>
+                        {
+                            estaRemovendo && /*remove o registro*/
+                                <button 
+                                    className={styles.removereg}
+                                    onClick={()=>handleRemoveRegistro(item.id)}
+                                >
+                                    -
+                                </button>
+                        }
                     </div>
                 ))
             }

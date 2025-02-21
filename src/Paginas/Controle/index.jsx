@@ -10,11 +10,8 @@ import {
     query, 
     where, 
     onSnapshot,
-    deleteDoc, 
-    doc,
     serverTimestamp,
-    orderBy,
-    getDocs
+    orderBy
 } from "firebase/firestore";
 
 import {format} from "date-fns";
@@ -34,16 +31,8 @@ const Controle = () => {
     }, []);
 
     //mantem as categorias e registros para cada categoria - dados temporarios
-    const [categorias, setCategorias] = useState([
-        /*{id: 1, nome: "Pessoais - Fevereiro", data: "02 de fevereiro de 2025", idusuario: 1},
-        {id: 2, nome: "Empréstimos", data: "05 de fevereiro de 2025", idusuario: 1}*/
-    ]);
-    const [registros, setRegistros] = useState([
-        /*{id: 1, descricao: "Compras do inicio do mes", tipogasto: 0, valor: 345.32, data: "03 de fevereiro de 2025", idcategoria: 1, idusuario: 1},
-        {id: 2, descricao: "Ração pros cachorros", tipogasto: 0, valor: 121.0, data: "16 de fevereiro de 2025", idcategoria: 1, idusuario: 1},
-        {id: 3, descricao: "Salário do mês", tipogasto: 1, valor: 3467.9, data: "26 de fevereiro de 2025", idcategoria: 1, idusuario: 1},
-        {id: 4, descricao: "Empréstimo Ramon", tipogasto: 0, valor: 300, data: "01 de fevereiro de 2025", idcategoria: 2, idusuario: 1}*/
-    ]);
+    const [categorias, setCategorias] = useState([]);
+    const [registros, setRegistros] = useState([]);
 
     //referente ao botão de nova categoria e seu formulario
     const [estaRegistrando, setEstaRegistrando] = useState(false);
