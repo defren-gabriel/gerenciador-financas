@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 
 import {useAuth} from "../../Contextos/Auth";
@@ -9,10 +9,17 @@ const Login = () => {
     //do contexto
     const {user, login} = useAuth();
 
+    const inputLoginRef = useRef();
+
     //verifica se já esta logado
     useEffect(()=>{
         if(user){
             navigate("/controle");
+        }
+
+        //foca o componente login
+        if(inputLoginRef.current){
+            inputLoginRef.current.focus();
         }
     }, []);
 
@@ -94,6 +101,7 @@ const Login = () => {
                         id="email"
                         name="email"
                         className={styles.input}
+                        ref={inputLoginRef}
                     />
                 </div>
                 {/*container para a senha*/}
@@ -120,6 +128,7 @@ const Login = () => {
                             <button 
                                 className={styles.botaoregistrar}
                                 onClick={handleRegistro}
+                                type="button"
                             >
                                 Fazer o registro
                             </button>

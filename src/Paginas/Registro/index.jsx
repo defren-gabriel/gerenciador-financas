@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 
 import {useAuth} from "../../Contextos/Auth";
@@ -8,10 +8,17 @@ import styles from "./Registro.module.css";
 const Registro = () => {
     const {user, register} = useAuth();
     
+    const inputRegistroRef = useRef();
+
     //verifica se esta logado e muda para a página de controle
     useEffect(()=>{
         if(user){
             navigate("/controle");
+        }
+
+        //foca no email assim que entra na tela e não esta logado
+        if(inputRegistroRef.current){
+            inputRegistroRef.current.focus();
         }
     }, []);
 
@@ -90,6 +97,7 @@ const Registro = () => {
                         id="email"
                         name="email"
                         className={styles.input}
+                        ref={inputRegistroRef}
                     />
                 </div>
                 {/*container para a senha*/}
@@ -116,6 +124,7 @@ const Registro = () => {
                             <button 
                                 className={styles.botaoentrar}
                                 onClick={handleLogin}
+                                type="button"
                             >
                                 Fazer o login
                             </button>
