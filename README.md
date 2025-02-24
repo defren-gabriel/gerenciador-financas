@@ -18,17 +18,33 @@
 
 ###
 
-<div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
-  <img width="12" />
-  <img src="https://brandeps.com/logo-download/F/Firebase-logo-vector-02.svg" height="40" alt="google firebase logo" />
+<div align="left" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: flex-start; align-items: center;">
+  <figure style="display: inline-block; text-align: center; margin: 0 10px;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="HTML5 logo" />
+    <figcaption>HTML5</figcaption>
+  </figure>
+
+  <figure style="display: inline-block; text-align: center; margin: 0 10px;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="CSS3 logo" />
+    <figcaption>CSS3</figcaption>
+  </figure>
+
+  <figure style="display: inline-block; text-align: center; margin: 0 10px;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript logo" />
+    <figcaption>JavaScript</figcaption>
+  </figure>
+
+  <figure style="display: inline-block; text-align: center; margin: 0 10px;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="React logo" />
+    <figcaption>React</figcaption>
+  </figure>
+
+  <figure style="display: inline-block; text-align: center; margin: 0 10px;">
+    <img src="https://brandeps.com/logo-download/F/Firebase-logo-vector-02.svg" height="40" alt="Firebase logo" />
+    <figcaption>Firebase</figcaption>
+  </figure>
 </div>
+
 
 ###
 
