@@ -18,6 +18,17 @@
     margin-bottom: 20px;
 }
 
+.projdevac {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0;
+}
+
 .projdeva {
     box-sizing: border-box;
     text-decoration: none;
@@ -25,6 +36,14 @@
     border: 1px solid black;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+.projdevai {
+    width: 64px;
+}
+
+.projdevacfig {
+    color: black;
 }
 
 .links {

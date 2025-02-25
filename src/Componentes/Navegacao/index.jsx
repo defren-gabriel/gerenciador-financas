@@ -11,7 +11,7 @@ const Navegacao = () => {
     const location = useLocation();
     const local = location.pathname === "/controle";
 
-    //verifica se esta logado
+    //pega o metodos de saida
     const {logout} = useAuth();
 
     //manipula o sair
@@ -26,20 +26,28 @@ const Navegacao = () => {
         }
     }
 
-    //monipula move para a pagina de login e registrar
-    const handleInicio = (e) => {
-        navigate("/");
-    }
-    const handleRegistro = (e) => {
-        navigate("/registro");
-    }
-
     return(
         <header>
             <nav className={styles.container}>
                 <div className={styles.projdev}>
-                    <a className={styles.projdeva} href="https://github.com/defren-gabriel/gerenciador-financas" target="_blank">Página do Projeto</a>
-                    <a className={styles.projdeva} href="https://github.com/defren-gabriel" target="_blank">Página do DeFrEn</a>
+                    <a className={styles.projdeva} href="https://github.com/defren-gabriel/gerenciador-financas" target="_blank">
+                        <figure className={styles.projdevac}>
+                            <img 
+                                className={styles.projdevai} 
+                                src="https://defren-gabriel.github.io/bookmarks/github.png" 
+                                alt="Página do GitHub do Projeto" />
+                            <figcaption className={styles.projdevacfig}>GitHub</figcaption>
+                        </figure>
+                    </a>
+                    <a className={styles.projdeva} href="https://github.com/defren-gabriel" target="_blank">
+                        <figure className={styles.projdevac}>
+                            <img 
+                                className={styles.projdevai} 
+                                src="https://defren-gabriel.github.io/bookmarks/eu.png" 
+                                alt="Página do Desenvolvedor" />
+                            <figcaption className={styles.projdevacfig}>Eu</figcaption>
+                        </figure>
+                    </a>
                 </div>
                 <div className={styles.links}>
                     <span className={styles.linkss}>Gerenciar Finanças</span>                    
