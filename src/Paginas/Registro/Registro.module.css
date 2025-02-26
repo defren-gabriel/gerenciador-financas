@@ -14,6 +14,11 @@
     color: black;
     margin: 15px 0 25px 0;
     font-size: 2em;
+
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /*container para o formulario*/
@@ -40,11 +45,21 @@
 
 .label {
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .input {
     color: black;
     padding: 5px 10px;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 /*container para a senha*/
@@ -70,23 +85,43 @@
 .botaoregistrar {
     color: black;
     padding: 5px 10px;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .botaoentrar {
     color: black;
     padding: 5px 10px;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .msgbtn {
     text-align: center;
     margin: 0;
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .erro {
     text-align: center;
     margin: 0;
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 /*estilo para celular e tablet*/

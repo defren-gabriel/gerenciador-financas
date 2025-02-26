@@ -7,6 +7,11 @@
     text-align: center;
     margin: 30px 0 50px 0;
     color: black;
+
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .novacategoria {
@@ -15,6 +20,11 @@
     margin: 0 0 0 50px;
     border-radius: 5px;
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 /*container para todo o registro de nova categoria*/
@@ -29,6 +39,11 @@
 
 .titulo2novac {
     color: black;
+
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .formregistracat {
@@ -58,11 +73,21 @@
 
 .inputnomelabel {
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .inputnomeinput {
     color: black;
     flex-grow: 1;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 /*container para o submit do registro de categoria*/
@@ -84,4 +109,9 @@
     color: black;
     box-sizing: border-box;
     padding: 7px 10px;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }

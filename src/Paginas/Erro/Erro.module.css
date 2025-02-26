@@ -13,9 +13,19 @@
 .titulo1 {
     margin: 0;
     color: black;
+
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .paragrafo {
     margin: 0;
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }

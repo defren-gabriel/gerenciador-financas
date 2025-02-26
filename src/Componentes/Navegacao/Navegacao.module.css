@@ -27,6 +27,12 @@
     gap: 10px;
 
     margin: 0;
+
+    color: black;
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;        
 }
 
 .projdeva {
@@ -44,6 +50,11 @@
 
 .projdevacfig {
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .links {
@@ -62,6 +73,11 @@
 .linkss {
     font-size: 3em;
     color: black;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .botoes {
@@ -77,6 +93,11 @@
     background-color: rgba(255, 0, 0, 0.25);
     border: 1px solid red;
     border-radius: 5px;
+
+    font-family: "Cabin", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .linksb:hover {
