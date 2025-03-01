@@ -375,9 +375,10 @@
 }
 
 /*aplica para as linhas de item linha a caracteristica zebrada*/
-/*.container_categoria .itemlinha:nth-child(even) {
+.container_categoria .itemlinhar:nth-child(even), 
+.container_categoria .itemlinhad:nth-child(even) {
   background-color: #f2f2f2;
-}*/
+}
 
 
 /*celular e tablet*/
