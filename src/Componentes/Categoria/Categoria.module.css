@@ -90,7 +90,7 @@
     align-items: center;
     gap: 10px;
 
-    background-color: #FF5733;
+    color: #FF652F;
 
     padding: 5px;
 }
@@ -103,14 +103,14 @@
     align-items: center;
     gap: 10px;
 
-    background-color: #4CAF50;
+    color: #14A76C;
 
     padding: 5px;
 }
 
 .itemlinha1 {
     flex-grow: 1;
-    color: black;
+    color: inherit;
 
     font-family: "Cabin", serif;
     font-optical-sizing: auto;
@@ -121,7 +121,7 @@
 .itemlinha2 {
     min-width: 150px;
     text-align: right;
-    color: black;
+    color: inherit;
 
     font-family: "Cabin", serif;
     font-optical-sizing: auto;
@@ -130,7 +130,7 @@
 }
 
 .itemlinha3 {
-    color: black;
+    color: inherit;
 
     font-family: "Cabin", serif;
     font-optical-sizing: auto;
@@ -353,7 +353,7 @@
 }
 
 .totalvalorp {
-    background-color: #4CAF50;
+    color: #14A76C;
 
     padding: 5px;
 
@@ -364,7 +364,7 @@
 }
 
 .totalvalorn {
-    background-color: #FF5733;
+    color: #FF652F;
 
     padding: 5px;
 
