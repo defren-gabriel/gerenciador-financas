@@ -23,7 +23,7 @@
 
 /*container para o formulario*/
 .form {
-    max-width: 280px;
+    max-width: 400px;
 
     display: flex;
     flex-wrap: nowrap;
@@ -36,7 +36,7 @@
     box-sizing: border-box;
 
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -60,6 +60,8 @@
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+
+    min-width: 200px;
 }
 
 /*container para a senha*/
@@ -67,7 +69,7 @@
     box-sizing: border-box;
 
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -128,5 +130,11 @@
 @media screen and (max-width: 750px){
     .titulo1 {
         font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .input {
+        min-width: auto;
     }
 }

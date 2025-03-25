@@ -183,26 +183,27 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
 
     return(
         <section className={styles.container_categoria}>
-            {/*titulo valor e data*/}
+        {/*titulo valor e data*/}
+            <div className={styles.titulo1c1}>
+                <h2 className={styles.titulo1cat}>{nomeCat}</h2>
+                <button 
+                    className={styles.titulo1but1}
+                    onClick={handleEstaRemovendoChange}
+                >
+                    -
+                </button>
+                {
+                    estaRemovendo && /*botão que remove categoria e seus registros*/
+                        <button 
+                            className={styles.removebutt}
+                            onClick={()=>handleRemoveCategoria(idCat)}
+                        >
+                            Remover tudo
+                        </button>
+                }
+            </div>
             <div className={styles.titulo1}>
-                <div className={styles.titulo1c1}>
-                    <strong className={styles.titulo1cat}>{nomeCat}</strong>
-                    <button 
-                        className={styles.titulo1but1}
-                        onClick={handleEstaRemovendoChange}
-                    >
-                        -
-                    </button>
-                    {
-                        estaRemovendo && /*botão que remove categoria e seus registros*/
-                            <button 
-                                className={styles.removebutt}
-                                onClick={()=>handleRemoveCategoria(idCat)}
-                            >
-                                Remover tudo
-                            </button>
-                    }
-                </div>
+                <span className={styles.titulo1desc}>Descrição</span>
                 <span className={styles.titulo1valor}>Valor</span>
                 <span className={styles.titulo1data}>{da}</span>
             </div>

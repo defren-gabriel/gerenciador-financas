@@ -60,6 +60,8 @@
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+
+    min-width: 200px;
 }
 
 /*container para a senha*/
@@ -128,5 +130,11 @@
 @media screen and (max-width: 750px){
     .titulo1 {
         font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .input {
+        min-width: auto;
     }
 }
