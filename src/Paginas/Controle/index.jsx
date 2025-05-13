@@ -87,7 +87,7 @@ const Controle = () => {
         const q = query(
           collection(db, "categorias"),
           where("idusuario", "==", user.uid),
-          orderBy("ordem", "asc")
+          orderBy("ordem", "desc")
         );
     
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
