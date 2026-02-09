@@ -205,7 +205,6 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
             <div className={styles.titulo1}>
                 <span className={styles.titulo1desc}>Descrição</span>
                 <span className={styles.titulo1valor}>Valor</span>
-                <span className={styles.titulo1data}>{da}</span>
             </div>
             {
                 reg.map((item)=>(
@@ -216,7 +215,6 @@ const Categoria = ({idcategoria, nomecategoria, data, registros}) => {
                     >
                         <span className={styles.itemlinha1}>{item.descricao}</span>
                         <span className={styles.itemlinha2}>R$ {item.valor.toFixed(2).replace(".", ",")}</span>
-                        <span className={styles.itemlinha3}>{item.data}</span>
                         {
                             estaRemovendo && /*remove o registro*/
                                 <button 

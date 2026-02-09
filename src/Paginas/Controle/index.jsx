@@ -107,7 +107,7 @@ const Controle = () => {
     //lista os registros
     useEffect(() => {
         if (!user) {
-          setRegistros([]);  
+          setRegistros([]);
           return;
         }
     
